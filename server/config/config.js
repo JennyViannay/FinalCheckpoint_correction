@@ -1,5 +1,5 @@
 const db_name = 'wild-circus'
-const db_port = 8889 //8889 if you use MAMP Server
+const db_port = 3306 //8889 if you use MAMP Server
 const mysql = require('mysql')
 const connection = mysql.createConnection({
     host: 'localhost',
