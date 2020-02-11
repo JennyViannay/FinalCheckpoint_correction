@@ -1,22 +1,22 @@
 import React, { Component } from 'react'
 import Axios from 'axios'
+import Tarification from './Tarification'
 
 export default class Representation extends Component {
     state = {
-        representations : [],
+        representation : [],
         acts : []
     }
 
     componentDidMount(){
-        const name = this.props.match.params.name
-        this.getRepresentationsFromTour(name)
-        const id = this.props.match.params.id
+        const id = this.props.match.params.id_representation
+        this.getRepresentation(id)
         this.getActsFromRepresentation(id)
     }
 
-    getRepresentationsFromTour = (name) => {
-        Axios.get(`http://localhost:4000/representation/all-by-tour/${name}`)
-        .then(response => this.setState({ representations : response.data }, () => this.state))
+    getRepresentation = (id) => {
+        Axios.get(`http://localhost:4000/representation/${id}`)
+        .then(response => this.setState({ representation : response.data }, () => this.state))
     }
 
     getActsFromRepresentation = (id) => {
@@ -25,17 +25,35 @@ export default class Representation extends Component {
     }
 
     render () {
-        console.log(this.state)
-        return(
+        return (
             <div id="representation" className="container text-center">
-                {this.state.representations[0] ? 
+                {this.state.representation[0] && this.state.acts ? 
+                <div>
                     <div>
-                        <h2>{this.state.representations[0].tour_name}</h2>
-                        <p>Places disponibles : {this.state.representations[0].place_number}</p>
-                        <p>Lieu unique : {this.state.representations[0].location_city}</p>
-                        <p>Date : {this.state.representations[0].date}</p>
-                    </div> : 'Erreur lors du chargement des représentations de cette tournée, réessayer plus tard.'
+                        <h2>{this.state.representation[0].tour_name}</h2>
+                        <p>Places disponibles : {this.state.representation[0].place_number}</p>
+                        <p>Lieu unique : {this.state.representation[0].location_city}</p>
+                        <p>Date : {this.state.representation[0].date}</p>
+                    </div>
+                    <hr/>
+                    <h2>Les perfomances de cette tournée :</h2>
+                    <hr/>
+                    <div className="row">
+                        {this.state.acts.map((act, i) => 
+                            <div className="col-4" key={i}>
+                            <h2>{act.name}</h2>
+                            <img src="..." alt={act.picture}/>
+                            <p>Description : {act.description}</p>
+                        </div>)
+                        }
+                    </div>
+                    
+                </div> : 'Erreur lors du chargement des représentations de cette représentation, réessayer plus tard.'
                 }
+                <hr/>
+                    <h2>Sélectionner vos places :</h2>
+                <hr/>
+                <Tarification />
             </div>
         )
     }
