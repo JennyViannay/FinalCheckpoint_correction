@@ -52,7 +52,7 @@ export default class Tarification extends Component {
     render() {
         console.log(this.state)
         return (
-            <div id="tarifs">
+            <div id="tarifs" className="container">
                 <ul>
                     {this.state.isLoaded === true && this.state.data ?
                         this.state.data.map((elem, i) =>
@@ -64,7 +64,9 @@ export default class Tarification extends Component {
                     }
                 </ul>
                 {this.state.total !== 0 ? <p>Prix total : {this.state.total}</p> : ''}
-                <button className="btn btn-primary" onClick={this.addToBasket}>Ajouter au panier</button>
+                <div className="text-center">
+                    <button className="btn btn-primary" onClick={this.addToBasket}>Ajouter au panier</button>
+                </div>
             </div>
         )
     }

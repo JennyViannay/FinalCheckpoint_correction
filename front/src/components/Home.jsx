@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Representation from './Representation'
+import Tour from './Tour'
 import Tarification from './Tarification'
 
 export default class Home extends Component {
@@ -9,14 +9,14 @@ export default class Home extends Component {
                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel">
                     <div className="carousel-inner">
                         <div className="carousel-item">
-                            <img className="d-block w-100" src="https://www.telerama.fr/sites/tr_master/files/styles/simplecrop1000/public/switch_marvelultimatealliance3_artwork_03-crop_1.png?itok=y1kj6oaP&sc=7c23ffe07800d8971795b87fd7323c5f" alt="Second slide" />
+                            <img className="d-block w-100" src="http://placehold.jp/851x315.png" alt="Second slide" />
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Lorem Ipsum</h5>
                                 <p>Maecenas et aliquam quam. Praesent a enim accumsan, tincidunt tortor vitae, gravida elit. Suspendisse potenti. Cras et elit ornare, dictum dui luctus, molestie velit.</p>
                             </div>
                         </div>
                         <div className="carousel-item active">
-                            <img className="d-block w-100" src="https://www.nintendo.com//content/dam/noa/en_US/games/switch/m/marvel-ultimate-alliance-3-the-black-order-switch/Switch_MUA3_1200x675.jpg" alt="First slide" />
+                            <img className="d-block w-100" src="http://placehold.jp/851x315.png" alt="First slide" />
                             <div class="carousel-caption d-none d-md-block">
                             <h5>Lorem Ipsum</h5>
                             <p>Maecenas et aliquam quam. Praesent a enim accumsan, tincidunt tortor vitae, gravida elit. Suspendisse potenti. Cras et elit ornare, dictum dui luctus, molestie velit.</p>
@@ -32,7 +32,7 @@ export default class Home extends Component {
                         <span className="sr-only">Next</span>
                     </a> 
                 </div>
-                <Representation />
+                <Tour />
                 <Tarification />
             </div>
         )

@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 // Routes :
 app.use("/tarification", route.tarification)
 app.use("/representation", route.representation)
+app.use("/tour", route.tour)
 
 app.listen(port, err => {
     if (err){ throw new Error('👎 👎  -- Something bad happened... server not connected -- 👎 👎 ')}
