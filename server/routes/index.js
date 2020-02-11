@@ -1,4 +1,5 @@
 // Here I define and export files where I have write routes and requests.
-const user = require("./user/user")
+const tarification = require("./tarification/tarification")
+const representation = require("./representation/representation")
 
-module.exports = { user }
+module.exports = { representation, tarification }

@@ -19,7 +19,9 @@ app.get('/', (req, res) => {
     res.send("Welcome on your Node/Express server !").status(200)
 })
 
-// app.use("/routes_for_user", route.user)
+// Routes :
+app.use("/tarification", route.tarification)
+app.use("/representation", route.representation)
 
 app.listen(port, err => {
     if (err){ throw new Error('👎 👎  -- Something bad happened... server not connected -- 👎 👎 ')}
