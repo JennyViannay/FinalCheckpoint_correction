@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 const Price = () => {
     return (
-        <div className="container my-5">
+        <div className="container my-5" id="tarifs">
             <h2 className="text-center">Tarifs uniques et exclusifs pour n'importes quelle tournée !</h2>
             <table className="table text-center">
                 <thead>

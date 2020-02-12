@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 
 export default class Navbar extends Component {
     state = {
-        basket : false
+        basket : false,
+        number : 0
     }
 
     componentDidMount(){
         if(localStorage.getItem("panier_total") > 0){
-            this.setState({ basket : true })
+            const number = parseInt(localStorage.getItem("adult_qty")) + parseInt(localStorage.getItem("kid_qty")) + parseInt(localStorage.getItem("senior_qty"))
+            this.setState({ basket : true,
+                            number : number    
+            }, () => this.state)
         }
     }
     render(){
@@ -30,7 +34,7 @@ export default class Navbar extends Component {
                         </li>
                         <li>
                         <a className="nav-link" href="/basket">
-                            {this.state.basket ? <i className="fas fa-cart-arrow-down"></i> : <i className="fas fa-shopping-cart"></i>}
+                            {this.state.basket && this.state.number > 0 ? <><i className="fas fa-cart-arrow-down"></i><span className="badge badge-light">{this.state.number}</span></> : <i className="fas fa-shopping-cart"></i>}
                         </a>
                         </li>
                     </ul>
